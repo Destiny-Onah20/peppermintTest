@@ -1,5 +1,6 @@
 import { IProduct } from "../interfaces/product.interface";
 import { IUser } from "../interfaces/user.interface";
+import { isEnumValue } from "./values";
 
 export function validateUserData(data: any): data is IUser {
     return (
@@ -16,5 +17,11 @@ export const validateProductData = (data: IProduct)=>{
         typeof data.price === 'number' &&
         typeof data.description === 'string' &&
         typeof data.quantity === 'number'
+      );
+};
+
+export const validateStatus = (status: string)=>{
+    return (
+        typeof status === 'string' 
       );
 };
